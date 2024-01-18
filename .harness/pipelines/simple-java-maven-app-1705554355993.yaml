@@ -24,6 +24,11 @@ pipeline:
                     command: echo hello world
                   timeout: ""
                   type: Run
+              - step:
+                  type: Background
+                  name: Background_1
+                  identifier: Background_1
+                  spec: {}
           platform:
             arch: Amd64
             os: Linux
@@ -31,3 +36,23 @@ pipeline:
             spec: {}
             type: Cloud
         type: CI
+  notificationRules:
+    - name: Notify_javaPipeline
+      identifier: Notify_javaPipeline
+      pipelineEvents:
+        - type: PipelineStart
+        - type: PipelineEnd
+        - type: PipelineSuccess
+        - type: PipelineFailed
+        - type: StageFailed
+          forStages:
+            - AllStages
+        - type: StepFailed
+      notificationMethod:
+        type: Email
+        spec:
+          userGroups:
+            - account._account_all_users
+          recipients:
+            - pradeep2303@gmail.com
+      enabled: true
