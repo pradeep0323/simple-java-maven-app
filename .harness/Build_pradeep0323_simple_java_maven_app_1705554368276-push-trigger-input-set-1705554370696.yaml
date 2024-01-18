@@ -1,0 +1,14 @@
+inputSet:
+  name: Build_pradeep0323_simple_java_maven_app_1705554368276-push-trigger-input-set
+  identifier: Build_pradeep0323_simple_java_maven_app_1705554368276pushtriggerinputset
+  orgIdentifier: default
+  projectIdentifier: default_project
+  pipeline:
+    identifier: Build_pradeep0323_simple_java_maven_app_1705554368276
+    properties:
+      ci:
+        codebase:
+          build:
+            type: branch
+            spec:
+              branch: <+trigger.branch>
